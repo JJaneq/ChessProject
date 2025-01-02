@@ -1,0 +1,14 @@
+D:\Uczelnia\5_semestr\.NET\Projekt\Chess\Chess\bin\Debug\net8.0-windows\Chess.exe
+D:\Uczelnia\5_semestr\.NET\Projekt\Chess\Chess\bin\Debug\net8.0-windows\Chess.deps.json
+D:\Uczelnia\5_semestr\.NET\Projekt\Chess\Chess\bin\Debug\net8.0-windows\Chess.runtimeconfig.json
+D:\Uczelnia\5_semestr\.NET\Projekt\Chess\Chess\bin\Debug\net8.0-windows\Chess.dll
+D:\Uczelnia\5_semestr\.NET\Projekt\Chess\Chess\bin\Debug\net8.0-windows\Chess.pdb
+D:\Uczelnia\5_semestr\.NET\Projekt\Chess\Chess\obj\Debug\net8.0-windows\Chess.GeneratedMSBuildEditorConfig.editorconfig
+D:\Uczelnia\5_semestr\.NET\Projekt\Chess\Chess\obj\Debug\net8.0-windows\Chess.AssemblyInfoInputs.cache
+D:\Uczelnia\5_semestr\.NET\Projekt\Chess\Chess\obj\Debug\net8.0-windows\Chess.AssemblyInfo.cs
+D:\Uczelnia\5_semestr\.NET\Projekt\Chess\Chess\obj\Debug\net8.0-windows\Chess.csproj.CoreCompileInputs.cache
+D:\Uczelnia\5_semestr\.NET\Projekt\Chess\Chess\obj\Debug\net8.0-windows\Chess.dll
+D:\Uczelnia\5_semestr\.NET\Projekt\Chess\Chess\obj\Debug\net8.0-windows\refint\Chess.dll
+D:\Uczelnia\5_semestr\.NET\Projekt\Chess\Chess\obj\Debug\net8.0-windows\Chess.pdb
+D:\Uczelnia\5_semestr\.NET\Projekt\Chess\Chess\obj\Debug\net8.0-windows\Chess.genruntimeconfig.cache
+D:\Uczelnia\5_semestr\.NET\Projekt\Chess\Chess\obj\Debug\net8.0-windows\ref\Chess.dll
