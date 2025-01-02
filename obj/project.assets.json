@@ -8,23 +8,23 @@
     "net8.0-windows7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\bejgi\\.nuget\\packages\\": {},
-    "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Kamil\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Uczelnia\\5_semestr\\.NET\\Projekt\\Chess\\Chess\\Chess.csproj",
+      "projectUniqueName": "C:\\Users\\Kamil\\Desktop\\Stary Folder\\studia_git\\SEM_5\\NET\\PROJEKT\\ChessProject\\Chess.csproj",
       "projectName": "Chess",
-      "projectPath": "D:\\Uczelnia\\5_semestr\\.NET\\Projekt\\Chess\\Chess\\Chess.csproj",
-      "packagesPath": "C:\\Users\\bejgi\\.nuget\\packages\\",
-      "outputPath": "D:\\Uczelnia\\5_semestr\\.NET\\Projekt\\Chess\\Chess\\obj\\",
+      "projectPath": "C:\\Users\\Kamil\\Desktop\\Stary Folder\\studia_git\\SEM_5\\NET\\PROJEKT\\ChessProject\\Chess.csproj",
+      "packagesPath": "C:\\Users\\Kamil\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Kamil\\Desktop\\Stary Folder\\studia_git\\SEM_5\\NET\\PROJEKT\\ChessProject\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\bejgi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Kamil\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],

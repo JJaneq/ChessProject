@@ -14,10 +14,10 @@ public partial class Form1 : Form
     public Form1()
     {
         InitializeComponent();
-        
+
         board = new Board(SIZE);
         game = new Game(board);
-        
+
         //Drawing board
         boardGraphic = new BoardGraphic();
         tileList = boardGraphic.DrawBoard(boardPanel, board, TileClick);
@@ -29,7 +29,7 @@ public partial class Form1 : Form
     {
         boardGraphic.HideMoves(tileList);
         Button tile = (Button)sender;
-        
+
         int row = -1, col = -1;
         if (tile.Tag is Point pos)
         {
@@ -42,8 +42,8 @@ public partial class Form1 : Form
             throw new InvalidDataException();
         }
         Console.WriteLine("Tile:" + row + "," + col);
-        
-        
+
+
         if (board.SelectedTile == null)
         {
             var piece = board.GetPiece(row, col);
@@ -55,7 +55,7 @@ public partial class Form1 : Form
                 {
                     return;
                 }
-                
+
                 board.SelectedTile = selectedTile;
                 boardGraphic.ShowMoves(board, tileList, selectedTile);
             }
@@ -88,9 +88,19 @@ public partial class Form1 : Form
             board.SelectedTile = null;
         }
     }
-    
+
     private void Form1_Load(object sender, EventArgs e)
     {
         throw new System.NotImplementedException();
+    }
+
+    private void boardPanel_Paint(object sender, PaintEventArgs e)
+    {
+
+    }
+
+    private void label1_Click(object sender, EventArgs e)
+    {
+
     }
 }

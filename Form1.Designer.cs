@@ -29,24 +29,31 @@ partial class Form1
     /// </summary>
     private void InitializeComponent()
     {
-        boardPanel = new System.Windows.Forms.Panel();
+        boardPanel = new Panel();
+        boardPanel.SuspendLayout();
         SuspendLayout();
         // 
         // boardPanel
         // 
-        boardPanel.BackColor = System.Drawing.Color.BurlyWood;
-        boardPanel.Location = new System.Drawing.Point(12, 12);
+        boardPanel.BackColor = Color.BurlyWood;
+        boardPanel.Location = new Point(10, 9);
+        boardPanel.Margin = new Padding(3, 2, 3, 2);
         boardPanel.Name = "boardPanel";
-        boardPanel.Size = new System.Drawing.Size(800, 800);
+        boardPanel.Size = new Size(873, 928);
         boardPanel.TabIndex = 0;
+        boardPanel.Paint += boardPanel_Paint;
         // 
         // Form1
         // 
-        AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
-        AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-        ClientSize = new System.Drawing.Size(882, 853);
+        AutoScaleDimensions = new SizeF(7F, 15F);
+        AutoScaleMode = AutoScaleMode.Font;
+        ClientSize = new Size(1098, 964);
         Controls.Add(boardPanel);
+        Margin = new Padding(3, 2, 3, 2);
+        Name = "Form1";
         Text = "Form1";
+        boardPanel.ResumeLayout(false);
+        boardPanel.PerformLayout();
         ResumeLayout(false);
     }
 

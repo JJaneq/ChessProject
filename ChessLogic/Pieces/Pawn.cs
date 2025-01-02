@@ -13,9 +13,14 @@ public class Pawn : Piece
         List<Tile> possibleMoves = new List<Tile>();
         int direction = Color == 'w' ? -1 : 1; // Kierunek ruchu zależny od koloru
 
+        
+        if(Row + direction > 7 || Row + direction < 0)
+        {
+            return null;
+        }
         // Ruch do przodu
         Tile forwardTile = board.GetTile(Row + direction, Col);
-        if (forwardTile != null && forwardTile.Piece == null)
+        if (forwardTile.Piece == null)
         {
             possibleMoves.Add(forwardTile);
 
@@ -29,6 +34,22 @@ public class Pawn : Piece
                 }
             }
         }
+
+        // Bicie
+        int[] attackOffsets = { -1, 1 };
+        foreach (int offset in attackOffsets)
+        {
+            int attackCol = Col + offset;
+            if (attackCol >= 0 && attackCol <= 7)
+            {
+                Tile attackTile = board.GetTile(Row + direction, attackCol);
+                if (attackTile != null && attackTile.Piece != null && attackTile.Piece.Color != this.Color)
+                {
+                    possibleMoves.Add(attackTile);
+                }
+            }
+        }
+
         return possibleMoves;
     }
 }
