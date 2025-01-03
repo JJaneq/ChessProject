@@ -17,4 +17,6 @@ public abstract class Piece
     }
 
     public abstract List<Tile> GetPossibleMoves(Board board);
+
+    public abstract List<Tile> GetGuardedTiles(Board board);
 }

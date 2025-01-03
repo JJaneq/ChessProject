@@ -1,3 +1,5 @@
+Ochraniane pola na które nie może wejsc król
+
 Dodałem jedynie podstawowe ruchy i bicia figur
 
 Skończyłem na dodaniu poruszania się pionków. W klasach innych rodzai pionków są metody GetPossibleMoves, w których dodając logikę poruszania się powinny one działać poprawnie po dodaniu ich w BoardGraphics.DrawPieces.

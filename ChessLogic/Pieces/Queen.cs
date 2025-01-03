@@ -54,4 +54,9 @@ public class Queen : Piece
 
         return possibleMoves;
     }
+
+    public override List<Tile> GetGuardedTiles(Board board)
+    {
+        return GetPossibleMoves(board);
+    }
 }

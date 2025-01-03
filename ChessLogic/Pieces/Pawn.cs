@@ -14,26 +14,26 @@ public class Pawn : Piece
         int direction = Color == 'w' ? -1 : 1; // Kierunek ruchu zależny od koloru
 
         
-        if(Row + direction > 7 || Row + direction < 0)
+        if(Row + direction <= 7 && Row + direction >= 0)
         {
-            return null;
-        }
-        // Ruch do przodu
-        Tile forwardTile = board.GetTile(Row + direction, Col);
-        if (forwardTile.Piece == null)
-        {
-            possibleMoves.Add(forwardTile);
-
-            // Podwójny ruch, jeśli pionek się jeszcze nie poruszał
-            if (!Moved)
+            // Ruch do przodu
+            Tile forwardTile = board.GetTile(Row + direction, Col);
+            if (forwardTile.Piece == null)
             {
-                Tile doubleForwardTile = board.GetTile(Row + 2 * direction, Col);
-                if (doubleForwardTile != null && doubleForwardTile.Piece == null)
+                possibleMoves.Add(forwardTile);
+
+                // Podwójny ruch, jeśli pionek się jeszcze nie poruszał
+                if (!Moved)
                 {
-                    possibleMoves.Add(doubleForwardTile);
+                    Tile doubleForwardTile = board.GetTile(Row + 2 * direction, Col);
+                    if (doubleForwardTile != null && doubleForwardTile.Piece == null)
+                    {
+                        possibleMoves.Add(doubleForwardTile);
+                    }
                 }
             }
         }
+
 
         // Bicie
         int[] attackOffsets = { -1, 1 };
@@ -43,7 +43,7 @@ public class Pawn : Piece
             if (attackCol >= 0 && attackCol <= 7)
             {
                 Tile attackTile = board.GetTile(Row + direction, attackCol);
-                if (attackTile != null && attackTile.Piece != null && attackTile.Piece.Color != this.Color)
+                if (attackTile.Piece != null && attackTile.Piece.Color != this.Color)
                 {
                     possibleMoves.Add(attackTile);
                 }
@@ -51,5 +51,22 @@ public class Pawn : Piece
         }
 
         return possibleMoves;
+    }
+
+    public override List<Tile> GetGuardedTiles(Board board)
+    {
+        List<Tile> guardedTiles = new List<Tile>();
+        int[] attackOffsets = { -1, 1 };
+        int direction = Color == 'w' ? -1 : 1; // Kierunek ruchu zależny od koloru
+        foreach (int offset in attackOffsets)
+        {
+            int attackCol = Col + offset;
+            if (attackCol >= 0 && attackCol <= 7)
+            {
+                Tile attackTile = board.GetTile(Row + direction, attackCol);
+                guardedTiles.Add(attackTile);
+            }
+        }
+        return guardedTiles;
     }
 }

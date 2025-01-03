@@ -50,4 +50,9 @@ public class Bishop : Piece
 
         return possibleMoves;
     }
+
+    public override List<Tile> GetGuardedTiles(Board board)
+    {
+        return GetPossibleMoves(board);
+    }
 }
