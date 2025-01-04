@@ -87,7 +87,7 @@ public class BoardGraphic
         if (tile.Piece == null)
             return;
 
-        var moves = tile.Piece.GetPossibleMoves(board);
+        var moves = tile.Piece.RemoveBlockedMoves(board, tile.Piece.GetPossibleMoves(board));
 
         Console.WriteLine("Dozwolone ruchy:");
         foreach (var move in moves)

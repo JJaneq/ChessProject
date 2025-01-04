@@ -23,6 +23,7 @@ public abstract class Piece
     //FIXME: Za dużo razy sprawdza ruchy na całej planszy - wywoływanie tego w returnie każdej figury to prosty sposób na szybkie zabicie programu :)
     public List<Tile> RemoveBlockedMoves(Board board, List<Tile> possibleMoves)
     {
+        if (!possibleMoves.Any()) return possibleMoves;
         int ogCol = Col;
         int ogRow = Row;
         List<Tile> blockedMoves = new List<Tile>();

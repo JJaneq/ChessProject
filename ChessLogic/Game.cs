@@ -38,7 +38,7 @@ public class Game
     
     public Boolean CheckMove(Tile from, Tile to)
     {
-        List<Tile> availableTiles = from.Piece.GetPossibleMoves(Board);
+        List<Tile> availableTiles = from.Piece.RemoveBlockedMoves(Board, from.Piece.GetPossibleMoves(Board));
         if (availableTiles.Contains(to))
         {
             return true;
