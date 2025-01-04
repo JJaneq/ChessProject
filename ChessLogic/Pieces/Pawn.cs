@@ -26,15 +26,14 @@ public class Pawn : Piece
                 if (!Moved)
                 {
                     Tile doubleForwardTile = board.GetTile(Row + 2 * direction, Col);
-                    if (doubleForwardTile != null && doubleForwardTile.Piece == null)
+                    if (doubleForwardTile.Piece == null)
                     {
                         possibleMoves.Add(doubleForwardTile);
                     }
                 }
             }
         }
-
-
+        
         // Bicie
         int[] attackOffsets = { -1, 1 };
         foreach (int offset in attackOffsets)
@@ -49,7 +48,7 @@ public class Pawn : Piece
                 }
             }
         }
-
+        
         return possibleMoves;
     }
 

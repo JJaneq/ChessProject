@@ -8,13 +8,16 @@ public partial class Form1 : Form
 {
     private Board board;
     private Game game;
-    BoardGraphic boardGraphic;
+    private BoardGraphic boardGraphic;
     private List<List<Button>> tileList;
     const int SIZE = 8;
     public Form1()
     {
         InitializeComponent();
-
+        //Identyczne wymiary okna niezależnie od skalowania ekranu
+        ClientSize = new Size(1000, 865);
+        boardPanel.Size = new Size(800, 800);
+        
         board = new Board(SIZE);
         game = new Game(board);
 
@@ -87,20 +90,16 @@ public partial class Form1 : Form
             boardGraphic.DrawPieces(boardPanel, board, tileList);
             board.SelectedTile = null;
         }
+
+        labelMove.Text = "Ruch: " + ((game.Turn == 'w') ? "białe" : "czarne");
+        if (board.Check)
+            labelCheck.Text = (game.Turn == 'w' ? "Biały" : "Czarny") + " król jest szachowany";
+        else
+            labelCheck.Text = "";
     }
 
     private void Form1_Load(object sender, EventArgs e)
     {
         throw new System.NotImplementedException();
-    }
-
-    private void boardPanel_Paint(object sender, PaintEventArgs e)
-    {
-
-    }
-
-    private void label1_Click(object sender, EventArgs e)
-    {
-
     }
 }

@@ -6,7 +6,8 @@ public class Game
     public Player Player2 { get; set; }
     public Board Board { get; set; }
     public char Turn { get; set; }
-
+    // public Boolean Check { get; private set; }
+    
     public Game(Board board)
     {
         Board = board;
@@ -14,11 +15,13 @@ public class Game
         Player2 = new Player('b');
 
         Turn = 'w';
+        //Check = false;
     }
 
     private void NextTurn()
     {
         Turn = Turn == 'w' ? 'b' : 'w';
+        Board.isKingChecked(Turn);
     }
 
     public void MovePiece(Tile from, Tile to)
@@ -40,9 +43,6 @@ public class Game
         {
             return true;
         }
-        else
-        {
-            return false;
-        }
+        return false;
     }
 }

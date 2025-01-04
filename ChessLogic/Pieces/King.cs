@@ -10,7 +10,7 @@ public class King : Piece
     public override List<Tile> GetPossibleMoves(Board board)
     {
         List<Tile> possibleMoves = new List<Tile>();
-        List<Tile> opponentGuardedTiles = GetOpponentGuardedTiles(board);
+        List<Tile> opponentGuardedTiles = board.GetOpponentGuardedTiles(Color);
         int[][] directions = new int[][]
         {
             new int[] { -1, -1 }, // Góra-lewo
@@ -28,7 +28,8 @@ public class King : Piece
             if(Row + direction[0] >= 0 && Row + direction[0] <= 7 && Col + direction[1] >= 0 && Col + direction[1] <= 7)
             {
                 Tile forwardTile = board.GetTile(Row + direction[0], Col + direction[1]);
-                if (!opponentGuardedTiles.Contains(forwardTile))
+                if (!opponentGuardedTiles.Contains(forwardTile) 
+                    && (forwardTile.Piece == null || forwardTile.Piece.Color != Color))
                     possibleMoves.Add(forwardTile);
             }
         }
@@ -60,29 +61,6 @@ public class King : Piece
             {
                 Tile forwardTile = board.GetTile(newRow, newCol);
                 guardedTiles.Add(forwardTile);
-            }
-        }
-
-        return guardedTiles;
-    }
-
-    private List<Tile> GetOpponentGuardedTiles(Board board)
-    {
-        List<Tile> guardedTiles = new List<Tile>();
-
-        // Przejdź przez wszystkie pola planszy
-        for (int i = 0; i < board.Size; i++)
-        {
-            for (int j = 0; j < board.Size; j++)
-            {
-                Tile tile = board.GetTile(i, j);
-                Piece? piece = tile.Piece;
-
-                // Jeśli na polu jest figura przeciwnika, pobierz jej strzeżone pola
-                if (piece != null && piece.Color != this.Color)
-                {
-                    guardedTiles.AddRange(piece.GetGuardedTiles(board));
-                }
             }
         }
 

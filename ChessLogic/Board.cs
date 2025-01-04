@@ -13,6 +13,8 @@ public class Board
     // }
     public Tile? SelectedTile {get; set;}
 
+    public Boolean Check { get; private set; }
+    
     public Board(int size)
     {
         Size = size;
@@ -22,6 +24,8 @@ public class Board
             Tiles[i, j] = new Tile(i, j);
 
         // SelectedTile = null;
+        Check = false;
+        
         SetStartPieces();
     }
 
@@ -52,11 +56,50 @@ public class Board
                 Tiles[i, j].Piece = new Rook('w', i, j);
             if (i == 1) 
                 Tiles[i, j].Piece = new Pawn('b', i, j);
-            else if (i == 6)
+            if (i == 6)
                 Tiles[i, j].Piece = new Pawn('w', i, j);
         }
     }
 
+    public List<Tile> GetOpponentGuardedTiles(char playerColor)
+    {
+        List<Tile> guardedTiles = new List<Tile>();
+
+        // Przejdź przez wszystkie pola planszy
+        for (int i = 0; i < Size; i++)
+        {
+            for (int j = 0; j < Size; j++)
+            {
+                Tile tile = GetTile(i, j);
+                Piece? piece = tile.Piece;
+
+                // Jeśli na polu jest figura przeciwnika, pobierz jej strzeżone pola
+                if (piece != null && piece.Color != playerColor)
+                {
+                    guardedTiles.AddRange(piece.GetGuardedTiles(this));
+                }
+            }
+        }
+
+        return guardedTiles;
+    }
+    
+    public Boolean isKingChecked(char color)
+    {
+        List<Tile> guardedTiles = GetOpponentGuardedTiles(color);
+        foreach (var tile in guardedTiles)
+        {
+            if (tile.Piece is King)
+            {
+                Check = true;
+                return true;
+            }
+        }
+
+        Check = false;
+        return false;
+    }
+    
     public Piece? GetPiece(int x, int y)
     {
         return Tiles[x, y].Piece;

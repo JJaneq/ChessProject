@@ -29,3 +29,20 @@ C:\Users\Kamil\Desktop\Stary Folder\studia_git\SEM_5\NET\PROJEKT\ChessProject\ob
 C:\Users\Kamil\Desktop\Stary Folder\studia_git\SEM_5\NET\PROJEKT\ChessProject\obj\Debug\net8.0-windows\Chess.pdb
 C:\Users\Kamil\Desktop\Stary Folder\studia_git\SEM_5\NET\PROJEKT\ChessProject\obj\Debug\net8.0-windows\Chess.genruntimeconfig.cache
 C:\Users\Kamil\Desktop\Stary Folder\studia_git\SEM_5\NET\PROJEKT\ChessProject\obj\Debug\net8.0-windows\ref\Chess.dll
+D:\Uczelnia\5_semestr\.NET\Projekt\github\bin\Debug\net8.0-windows\Chess.exe
+D:\Uczelnia\5_semestr\.NET\Projekt\github\bin\Debug\net8.0-windows\Chess.deps.json
+D:\Uczelnia\5_semestr\.NET\Projekt\github\bin\Debug\net8.0-windows\Chess.runtimeconfig.json
+D:\Uczelnia\5_semestr\.NET\Projekt\github\bin\Debug\net8.0-windows\Chess.dll
+D:\Uczelnia\5_semestr\.NET\Projekt\github\bin\Debug\net8.0-windows\Chess.pdb
+D:\Uczelnia\5_semestr\.NET\Projekt\github\obj\Debug\net8.0-windows\Chess.Form1.resources
+D:\Uczelnia\5_semestr\.NET\Projekt\github\obj\Debug\net8.0-windows\Chess.csproj.GenerateResource.cache
+D:\Uczelnia\5_semestr\.NET\Projekt\github\obj\Debug\net8.0-windows\Chess.GeneratedMSBuildEditorConfig.editorconfig
+D:\Uczelnia\5_semestr\.NET\Projekt\github\obj\Debug\net8.0-windows\Chess.AssemblyInfoInputs.cache
+D:\Uczelnia\5_semestr\.NET\Projekt\github\obj\Debug\net8.0-windows\Chess.AssemblyInfo.cs
+D:\Uczelnia\5_semestr\.NET\Projekt\github\obj\Debug\net8.0-windows\Chess.csproj.CoreCompileInputs.cache
+D:\Uczelnia\5_semestr\.NET\Projekt\github\obj\Debug\net8.0-windows\Chess.sourcelink.json
+D:\Uczelnia\5_semestr\.NET\Projekt\github\obj\Debug\net8.0-windows\Chess.dll
+D:\Uczelnia\5_semestr\.NET\Projekt\github\obj\Debug\net8.0-windows\refint\Chess.dll
+D:\Uczelnia\5_semestr\.NET\Projekt\github\obj\Debug\net8.0-windows\Chess.pdb
+D:\Uczelnia\5_semestr\.NET\Projekt\github\obj\Debug\net8.0-windows\Chess.genruntimeconfig.cache
+D:\Uczelnia\5_semestr\.NET\Projekt\github\obj\Debug\net8.0-windows\ref\Chess.dll

@@ -29,33 +29,66 @@ partial class Form1
     /// </summary>
     private void InitializeComponent()
     {
-        boardPanel = new Panel();
-        boardPanel.SuspendLayout();
+        boardPanel = new System.Windows.Forms.Panel();
+        labelMove = new System.Windows.Forms.Label();
+        labelCheck = new System.Windows.Forms.Label();
+        textPanel = new System.Windows.Forms.Panel();
+        textPanel.SuspendLayout();
         SuspendLayout();
         // 
         // boardPanel
         // 
-        boardPanel.BackColor = Color.BurlyWood;
-        boardPanel.Location = new Point(10, 9);
-        boardPanel.Margin = new Padding(3, 2, 3, 2);
+        boardPanel.BackColor = System.Drawing.Color.BurlyWood;
+        boardPanel.Location = new System.Drawing.Point(10, 9);
+        boardPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
         boardPanel.Name = "boardPanel";
-        boardPanel.Size = new Size(873, 928);
+        boardPanel.Size = new System.Drawing.Size(800, 800);
         boardPanel.TabIndex = 0;
-        boardPanel.Paint += boardPanel_Paint;
+        // 
+        // labelMove
+        // 
+        labelMove.Location = new System.Drawing.Point(3, 9);
+        labelMove.Name = "labelMove";
+        labelMove.Size = new System.Drawing.Size(151, 29);
+        labelMove.TabIndex = 1;
+        labelMove.Text = "Ruch: białe";
+        // 
+        // labelCheck
+        // 
+        labelCheck.Location = new System.Drawing.Point(3, 38);
+        labelCheck.Name = "labelCheck";
+        labelCheck.Size = new System.Drawing.Size(151, 52);
+        labelCheck.TabIndex = 2;
+        labelCheck.Text = "Check Info";
+        // 
+        // textPanel
+        // 
+        textPanel.Controls.Add(labelCheck);
+        textPanel.Controls.Add(labelMove);
+        textPanel.Dock = System.Windows.Forms.DockStyle.Right;
+        textPanel.Location = new System.Drawing.Point(816, 0);
+        textPanel.Name = "textPanel";
+        textPanel.Size = new System.Drawing.Size(166, 818);
+        textPanel.TabIndex = 1;
         // 
         // Form1
         // 
-        AutoScaleDimensions = new SizeF(7F, 15F);
-        AutoScaleMode = AutoScaleMode.Font;
-        ClientSize = new Size(1098, 964);
+        AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+        AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+        ClientSize = new System.Drawing.Size(982, 818);
+        Controls.Add(textPanel);
         Controls.Add(boardPanel);
-        Margin = new Padding(3, 2, 3, 2);
-        Name = "Form1";
-        Text = "Form1";
-        boardPanel.ResumeLayout(false);
-        boardPanel.PerformLayout();
+        Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+        Text = "Szachy";
+        textPanel.ResumeLayout(false);
         ResumeLayout(false);
     }
+
+    private System.Windows.Forms.Panel textPanel;
+
+    private System.Windows.Forms.Label labelCheck;
+
+    private System.Windows.Forms.Label labelMove;
 
     private System.Windows.Forms.Panel boardPanel;
 

@@ -35,16 +35,16 @@ public class Rook : Piece
                 }
 
                 Tile tile = board.GetTile(newRow, newCol);
-                possibleMoves.Add(tile);
+                // possibleMoves.Add(tile);
                 if (tile.Piece != null)
                 {
-                   // if (tile.Piece.Color != this.Color)
-                   // {
-                       // possibleMoves.Add(tile);
-                   // }
-                    break;
+                   if (tile.Piece.Color != Color)
+                   {
+                       possibleMoves.Add(tile);
+                   }
+                   break;
                 }
-                //possibleMoves.Add(tile);
+                possibleMoves.Add(tile);
             }
         }
 

@@ -84,7 +84,7 @@ public class BoardGraphic
 
     public void ShowMoves(Board board, List<List<Button>> buttonList, Tile tile)
     {
-        if (tile.Piece != null)
+        if (tile.Piece == null)
             return;
 
         var moves = tile.Piece.GetPossibleMoves(board);
