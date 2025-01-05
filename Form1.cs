@@ -1,5 +1,6 @@
 using System.Resources;
 using System.Security.Cryptography;
+using System.Windows.Forms;
 using Chess.ChessLogic;
 
 namespace Chess;
@@ -15,15 +16,16 @@ public partial class Form1 : Form
     {
         InitializeComponent();
         //Identyczne wymiary okna niezależnie od skalowania ekranu
-        ClientSize = new Size(1000, 865);
-        boardPanel.Size = new Size(800, 800);
-        
+        ClientSize = new Size(1100, 965);
+        boardPanel.Size = new Size(850, 850);
+
         board = new Board(SIZE);
         game = new Game(board);
 
         //Drawing board
         boardGraphic = new BoardGraphic();
         tileList = boardGraphic.DrawBoard(boardPanel, board, TileClick);
+        boardGraphic.DrawLabels(boardPanel, board.Size, 100);
         board.SetStartPieces();
         boardGraphic.DrawPieces(boardPanel, board, tileList);
     }
@@ -101,5 +103,10 @@ public partial class Form1 : Form
     private void Form1_Load(object sender, EventArgs e)
     {
         throw new System.NotImplementedException();
+    }
+
+    private void boardPanel_Paint(object sender, PaintEventArgs e)
+    {
+
     }
 }

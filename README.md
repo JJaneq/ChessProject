@@ -1,3 +1,5 @@
+EnPassant, Roszady, nazwy pół (szachownica zakrywa lewe cyfry i górne litery)
+
 Możliwe pola już wyświetlają się poprawnie, dodałem sprawdzanie czy jest szach.
 Próbowałem zablokować możliwość poruszania figur w taki sposób by wystawiać własnego króla na szach
 No i na razie wyszła mi metoda w Piece, która tak często odowołuje się do sprawdzania pól ataku przeciwnika, że zabija program.

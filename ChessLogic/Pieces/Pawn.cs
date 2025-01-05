@@ -2,6 +2,7 @@
 
 public class Pawn : Piece
 {
+    public int canGetEnPassanted { get; set; } = 2; // Wartość domyślna
     public Pawn(char color, int row, int col) : base(color, row, col)
     {
         //PieceType = PieceType.Pawn;
@@ -49,6 +50,27 @@ public class Pawn : Piece
             }
         }
         
+        // Bicie w przelocie
+
+        int enPassantRow = Color == 'w' ? 3 : 4; // Rząd, na którym może zostać wykonane bicie w przelocie (4 dla białych, 3 dla czarnych)
+        if (Row == enPassantRow)
+        {
+            // Sprawdź, czy pion przeciwnika zrobił podwójny ruch
+            if(Row + direction <= 7 && Row + direction >= 0 && Col + 1 <= 7)
+            {
+                if (board.GetTile(Row, Col + 1).Piece is Pawn opponentPawn2 && opponentPawn2.Color != Color && opponentPawn2.Row == Row && opponentPawn2.Col == Col + 1 && opponentPawn2.canGetEnPassanted == 1)
+                {
+                    possibleMoves.Add(board.GetTile(Row + direction, Col + 1)); // Dodaj pole, na które można wykonać bicie w przelocie
+                }
+            }
+            if (Row + direction <= 7 && Row + direction >= 0 && Col - 1 >= 0)
+            {
+                if (board.GetTile(Row, Col - 1).Piece is Pawn opponentPawn && opponentPawn.Color != Color && opponentPawn.Row == Row && opponentPawn.Col == Col - 1 && opponentPawn.canGetEnPassanted == 1)
+                {
+                    possibleMoves.Add(board.GetTile(Row + direction, Col - 1)); // Dodaj pole, na które można wykonać bicie w przelocie
+                }
+            }
+        }
         return possibleMoves;
     }
 

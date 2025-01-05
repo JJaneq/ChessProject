@@ -89,7 +89,7 @@ public class Board
         List<Tile> guardedTiles = GetOpponentGuardedTiles(color);
         foreach (var tile in guardedTiles)
         {
-            if (tile.Piece is King)
+            if (tile.Piece is King king && king.Color == color)
             {
                 Check = true;
                 return true;

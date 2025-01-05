@@ -82,6 +82,50 @@ public class BoardGraphic
         }
     }
 
+    public void DrawLabels(Control controler, int boardSize, int tileSize)
+    {
+        Font labelFont = new Font("Arial", 14, FontStyle.Bold);
+        // Dodaj litery (A-H) na górze i na dole planszy
+        for (int i = 0; i < boardSize; i++)
+        {
+            Label topLabel = new Label();
+            topLabel.Text = ((char)('A' + i)).ToString();
+            topLabel.Size = new Size(tileSize, 20);
+            topLabel.Font = labelFont;
+            topLabel.TextAlign = ContentAlignment.MiddleCenter;
+            topLabel.Location = new Point(i * tileSize, 0); // Góra planszy
+            controler.Controls.Add(topLabel);
+
+            Label bottomLabel = new Label();
+            bottomLabel.Text = ((char)('A' + i)).ToString();
+            bottomLabel.Size = new Size(tileSize, 20);
+            bottomLabel.Font = labelFont;
+            bottomLabel.TextAlign = ContentAlignment.MiddleCenter;
+            bottomLabel.Location = new Point(i * tileSize, boardSize * tileSize + 20); // Dół planszy
+            controler.Controls.Add(bottomLabel);
+        }
+
+        // Dodaj liczby (1-8) po lewej i prawej stronie planszy
+        for (int i = 0; i < boardSize; i++)
+        {
+            Label leftLabel = new Label();
+            leftLabel.Text = (boardSize - i).ToString(); // Liczby malejąco od 8 do 1
+            leftLabel.Size = new Size(20, tileSize);
+            leftLabel.Font = labelFont;
+            leftLabel.TextAlign = ContentAlignment.MiddleCenter;
+            leftLabel.Location = new Point(0, i * tileSize + (tileSize / 2) - (leftLabel.Height / 2)); // Lewa strona
+            controler.Controls.Add(leftLabel);
+
+            Label rightLabel = new Label();
+            rightLabel.Text = (boardSize - i).ToString(); // Liczby malejąco od 8 do 1
+            rightLabel.Size = new Size(20, tileSize);
+            rightLabel.Font = labelFont;
+            rightLabel.TextAlign = ContentAlignment.MiddleCenter;
+            rightLabel.Location = new Point(boardSize * tileSize + 20, i * tileSize + (tileSize / 2) - (rightLabel.Height / 2)); // Prawa strona
+            controler.Controls.Add(rightLabel);
+        }
+    }
+
     public void ShowMoves(Board board, List<List<Button>> buttonList, Tile tile)
     {
         if (tile.Piece == null)
