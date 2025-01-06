@@ -1,3 +1,5 @@
+Naprawiłem błąd wyświetlania cyfr i liter, poprawiłem grafikę pionków
+
 EnPassant, Roszady, nazwy pół (szachownica zakrywa lewe cyfry i górne litery)
 
 Możliwe pola już wyświetlają się poprawnie, dodałem sprawdzanie czy jest szach.

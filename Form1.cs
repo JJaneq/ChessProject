@@ -25,7 +25,6 @@ public partial class Form1 : Form
         //Drawing board
         boardGraphic = new BoardGraphic();
         tileList = boardGraphic.DrawBoard(boardPanel, board, TileClick);
-        boardGraphic.DrawLabels(boardPanel, board.Size, 100);
         board.SetStartPieces();
         boardGraphic.DrawPieces(boardPanel, board, tileList);
     }

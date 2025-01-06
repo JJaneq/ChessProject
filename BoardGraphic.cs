@@ -6,16 +6,19 @@ namespace Chess;
 public class BoardGraphic
 {
     public List<List<Button>> DrawBoard(Control controler, Board board, EventHandler? clickHandler)
-    {
+    {        
         int tileSize = 100;
+        int offset = 25;
+        DrawLabels(controler, board.Size, tileSize, offset);
         List<List<Button>> btnTileList = new List<List<Button>>();
+        
         for (int i = 0, x = 0; i < board.Size; i++, x++)
         {
             List<Button> btnRowList = new List<Button>();
             for (int j = 0; j < board.Size; j++, x++)
             {
                 Button btnTile = new Button();
-                btnTile.Location = new Point(j * tileSize, i * tileSize);
+                btnTile.Location = new Point(j * tileSize + offset, i * tileSize + offset);
                 btnTile.Size = new Size(tileSize, tileSize);
                 btnTile.BackColor = x % 2 == 0 ? Color.SaddleBrown : Color.Bisque;
                 btnTile.FlatStyle = FlatStyle.Flat;
@@ -82,7 +85,7 @@ public class BoardGraphic
         }
     }
 
-    public void DrawLabels(Control controler, int boardSize, int tileSize)
+    public void DrawLabels(Control controler, int boardSize, int tileSize, int offset)
     {
         Font labelFont = new Font("Arial", 14, FontStyle.Bold);
         // Dodaj litery (A-H) na górze i na dole planszy
@@ -90,18 +93,18 @@ public class BoardGraphic
         {
             Label topLabel = new Label();
             topLabel.Text = ((char)('A' + i)).ToString();
-            topLabel.Size = new Size(tileSize, 20);
+            topLabel.Size = new Size(tileSize, offset);
             topLabel.Font = labelFont;
             topLabel.TextAlign = ContentAlignment.MiddleCenter;
-            topLabel.Location = new Point(i * tileSize, 0); // Góra planszy
+            topLabel.Location = new Point(i * tileSize + offset, 0); // Góra planszy
             controler.Controls.Add(topLabel);
 
             Label bottomLabel = new Label();
             bottomLabel.Text = ((char)('A' + i)).ToString();
-            bottomLabel.Size = new Size(tileSize, 20);
+            bottomLabel.Size = new Size(tileSize, offset);
             bottomLabel.Font = labelFont;
             bottomLabel.TextAlign = ContentAlignment.MiddleCenter;
-            bottomLabel.Location = new Point(i * tileSize, boardSize * tileSize + 20); // Dół planszy
+            bottomLabel.Location = new Point(i * tileSize + offset, boardSize * tileSize + offset); // Dół planszy
             controler.Controls.Add(bottomLabel);
         }
 
@@ -110,18 +113,18 @@ public class BoardGraphic
         {
             Label leftLabel = new Label();
             leftLabel.Text = (boardSize - i).ToString(); // Liczby malejąco od 8 do 1
-            leftLabel.Size = new Size(20, tileSize);
+            leftLabel.Size = new Size(25, tileSize);
             leftLabel.Font = labelFont;
             leftLabel.TextAlign = ContentAlignment.MiddleCenter;
-            leftLabel.Location = new Point(0, i * tileSize + (tileSize / 2) - (leftLabel.Height / 2)); // Lewa strona
+            leftLabel.Location = new Point(0, i * tileSize + (tileSize / 2) - (leftLabel.Height / 2) + 25); // Lewa strona
             controler.Controls.Add(leftLabel);
 
             Label rightLabel = new Label();
             rightLabel.Text = (boardSize - i).ToString(); // Liczby malejąco od 8 do 1
-            rightLabel.Size = new Size(20, tileSize);
+            rightLabel.Size = new Size(25, tileSize);
             rightLabel.Font = labelFont;
             rightLabel.TextAlign = ContentAlignment.MiddleCenter;
-            rightLabel.Location = new Point(boardSize * tileSize + 20, i * tileSize + (tileSize / 2) - (rightLabel.Height / 2)); // Prawa strona
+            rightLabel.Location = new Point(boardSize * tileSize + 25, i * tileSize + (tileSize / 2) - (rightLabel.Height / 2) + 25); // Prawa strona
             controler.Controls.Add(rightLabel);
         }
     }
