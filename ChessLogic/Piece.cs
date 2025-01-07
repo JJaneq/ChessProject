@@ -44,4 +44,9 @@ public abstract class Piece
         }
         return possibleMoves.Except(blockedMoves).ToList();
     }
+
+    public Boolean CanBePromoted()
+    {
+        return this is Pawn && (Row * (7 - Row)) == 0;
+    }
 }

@@ -79,12 +79,16 @@ public class Pawn : Piece
         List<Tile> guardedTiles = new List<Tile>();
         int[] attackOffsets = { -1, 1 };
         int direction = Color == 'w' ? -1 : 1; // Kierunek ruchu zależny od koloru
+        
+        int attackRow = Row + direction;
+        if (attackRow < 0 || attackRow > 7) return guardedTiles;
+        
         foreach (int offset in attackOffsets)
         {
             int attackCol = Col + offset;
             if (attackCol >= 0 && attackCol <= 7)
             {
-                Tile attackTile = board.GetTile(Row + direction, attackCol);
+                Tile attackTile = board.GetTile(attackRow, attackCol);
                 guardedTiles.Add(attackTile);
             }
         }

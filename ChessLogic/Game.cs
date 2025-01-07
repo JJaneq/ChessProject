@@ -87,7 +87,6 @@ public class Game
         to.Piece.Row = to.Row;
         to.Piece.Col = to.Column;
         to.Piece.Moved = true;
-        
         NextTurn();
     }
     

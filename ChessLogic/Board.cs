@@ -1,4 +1,5 @@
 ﻿using System.Reflection.Metadata.Ecma335;
+using System.Runtime.InteropServices.JavaScript;
 
 namespace Chess.ChessLogic;
 
@@ -105,8 +106,8 @@ public class Board
         return Tiles[x, y].Piece;
     }
 
-    public Tile GetTile(int x, int y)
+    public Tile GetTile(int row, int col)
     {
-        return Tiles[x, y];
+        return Tiles[row, col];
     }
 }

@@ -87,6 +87,11 @@ public partial class Form1 : Form
                 return;
             }
             game.MovePiece(board.SelectedTile, to);
+           if (to.Piece.CanBePromoted())
+           {
+               PromotionWindow promotionWindow= new PromotionWindow(to);
+               promotionWindow.ShowDialog();
+           }
             boardGraphic.HideMoves(tileList);
             boardGraphic.DrawPieces(boardPanel, board, tileList);
             board.SelectedTile = null;
