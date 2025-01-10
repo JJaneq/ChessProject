@@ -1,3 +1,4 @@
+﻿using System.Media;
 using System.Resources;
 using System.Security.Cryptography;
 using System.Windows.Forms;
@@ -5,14 +6,16 @@ using Chess.ChessLogic;
 
 namespace Chess;
 
-public partial class Form1 : Form
+public partial class GameWindow : Form
 {
     private Board board;
     private Game game;
     private BoardGraphic boardGraphic;
     private List<List<Button>> tileList;
+    private Menu menu;
+    private List<MoveInfo> _moves;
     const int SIZE = 8;
-    public Form1()
+    public GameWindow(Menu menuWindow)
     {
         InitializeComponent();
         //Identyczne wymiary okna niezależnie od skalowania ekranu
@@ -27,6 +30,9 @@ public partial class Form1 : Form
         tileList = boardGraphic.DrawBoard(boardPanel, board, TileClick);
         board.SetStartPieces();
         boardGraphic.DrawPieces(boardPanel, board, tileList);
+        
+        menu = menuWindow;
+        _moves = new List<MoveInfo>();
     }
 
     private void TileClick(object sender, EventArgs e)
@@ -46,6 +52,7 @@ public partial class Form1 : Form
             throw new InvalidDataException();
         }
         Console.WriteLine("Tile:" + row + "," + col);
+        Console.WriteLine(board.GetTile(row, col).ToString());
 
 
         if (board.SelectedTile == null)
@@ -87,6 +94,10 @@ public partial class Form1 : Form
                 return;
             }
             game.MovePiece(board.SelectedTile, to);
+            _moves.Add(new MoveInfo(board.SelectedTile.ToString(), to.ToString()));
+            
+            SoundPlayer moveSound = new SoundPlayer("Assets/piece_move.wav");
+            moveSound.Play();
            if (to.Piece.CanBePromoted())
            {
                PromotionWindow promotionWindow= new PromotionWindow(to);
@@ -104,13 +115,15 @@ public partial class Form1 : Form
             labelCheck.Text = "";
     }
 
-    private void Form1_Load(object sender, EventArgs e)
+    private void Form1_Closed(object sender, FormClosedEventArgs e)
     {
-        throw new System.NotImplementedException();
-    }
-
-    private void boardPanel_Paint(object sender, PaintEventArgs e)
-    {
-
+        var context = new ChessContext();
+        //int gameId = (context.GameInfo.Any() ? context.GameInfo.Max(i => i.Id) : 0) + 1;
+        context.GameInfo.Add(new GameHistory() {
+            //Id = gameId,
+            MoveHistory = _moves
+        });
+        context.SaveChanges();
+        menu.Show();
     }
 }

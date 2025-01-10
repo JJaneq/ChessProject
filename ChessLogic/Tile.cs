@@ -19,4 +19,9 @@ public class Tile
         Column = column;
         Piece = piece;
     }
+
+    public override string ToString()
+    {
+        return (char)('A' + Column) + (8 - Row).ToString();
+    }
 }

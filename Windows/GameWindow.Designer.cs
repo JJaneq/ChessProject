@@ -1,6 +1,6 @@
 ﻿namespace Chess;
 
-partial class Form1
+partial class GameWindow
 {
     /// <summary>
     ///  Required designer variable.
@@ -71,7 +71,6 @@ partial class Form1
         boardPanel.Name = "boardPanel";
         boardPanel.Size = new System.Drawing.Size(850, 850);
         boardPanel.TabIndex = 0;
-        boardPanel.Paint += boardPanel_Paint;
         // 
         // Form1
         // 
@@ -82,6 +81,7 @@ partial class Form1
         Controls.Add(boardPanel);
         Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
         Text = "Szachy";
+        FormClosed += Form1_Closed;
         textPanel.ResumeLayout(false);
         ResumeLayout(false);
     }

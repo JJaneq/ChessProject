@@ -1,3 +1,8 @@
+Uwaga - nie testowałem czy działa w Visualu, obawiam się że przy dziwnościach które tu się działy może tak nie być
+Potencjalnie dodając bazę danych sql express 2022 do visuala i projektu ma to szanse działać
+W nowo dodanym menu nie działa jeszcze historia rozgrywek
+Daj znać jak będziesz siadał, bo z tą bazą jest tyle dziwności, że na pewno będą problemy
+
 Naprawiłem błąd wyświetlania cyfr i liter, poprawiłem grafikę pionków
 
 EnPassant, Roszady, nazwy pół (szachownica zakrywa lewe cyfry i górne litery)
