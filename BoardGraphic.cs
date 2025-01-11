@@ -165,4 +165,10 @@ public class BoardGraphic
             }
         }
     }
+
+    public void ShowEndWindow(string text, GameWindow gameWindow)
+    {
+        var endWindow = new EndWindow(text ,gameWindow);
+        endWindow.Show();
+    }
 }

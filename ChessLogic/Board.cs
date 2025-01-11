@@ -68,6 +68,25 @@ public class Board
                     Tiles[i, j].Piece = new Pawn('w', i, j);
             }
     }
+    
+    public void SetMatePosition()
+{
+    // Reset the board by clearing all pieces
+    for (int i = 0; i < Size; i++)
+        for (int j = 0; j < Size; j++)
+            Tiles[i, j].Piece = null;
+
+    // Place the black king in a position to be mated
+    Tiles[0, 0].Piece = new King('b', 0, 0);
+
+    // Place white pieces to deliver checkmate
+    Tiles[1, 2].Piece = new Queen('w', 1, 2); // White queen ready to checkmate
+    Tiles[2, 1].Piece = new King('w', 2, 1);  // White king supporting the queen
+
+    // Optional: Add pawns or other pieces for realism or additional constraints
+    Tiles[6, 0].Piece = new Pawn('w', 6, 0);
+    Tiles[1, 6].Piece = new Pawn('b', 1, 6);
+}
 
     public void GameOver()
     {

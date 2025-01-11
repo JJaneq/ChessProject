@@ -24,6 +24,9 @@
       <Compile Update="Windows\HistoryWindow.cs">
         <SubType>Form</SubType>
       </Compile>
+      <Compile Update="Windows\EndWindow.cs">
+        <SubType>Form</SubType>
+      </Compile>
     </ItemGroup>
 
     <ItemGroup>

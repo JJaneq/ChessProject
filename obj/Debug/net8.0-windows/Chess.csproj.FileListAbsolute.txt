@@ -170,3 +170,5 @@ D:\Uczelnia\5_semestr\.NET\Projekt\github\bin\Debug\net8.0-windows\runtimes\win\
 D:\Uczelnia\5_semestr\.NET\Projekt\github\bin\Debug\net8.0-windows\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
 D:\Uczelnia\5_semestr\.NET\Projekt\github\obj\Debug\net8.0-windows\Chess.csproj.AssemblyReference.cache
 D:\Uczelnia\5_semestr\.NET\Projekt\github\obj\Debug\net8.0-windows\Chess.csproj.Up2Date
+D:\Uczelnia\5_semestr\.NET\Projekt\github\obj\Debug\net8.0-windows\Chess.GameWindow.resources
+D:\Uczelnia\5_semestr\.NET\Projekt\github\obj\Debug\net8.0-windows\Chess.csproj.GenerateResource.cache

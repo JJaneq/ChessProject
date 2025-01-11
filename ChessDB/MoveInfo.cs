@@ -11,6 +11,7 @@ public class MoveInfo
     public string From { get; set; } 
     public string To { get; set; }
     public DateTime MoveTime { get; set; }
+    public int GameHistoryId { get; set; }
 
     public MoveInfo(string from, string to)
     {

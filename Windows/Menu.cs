@@ -1,4 +1,6 @@
-﻿namespace Chess;
+﻿using System.Windows.Forms.VisualStyles;
+
+namespace Chess;
 
 public partial class Menu : Form
 {

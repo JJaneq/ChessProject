@@ -12,8 +12,9 @@ public partial class GameWindow : Form
     private Game game;
     private BoardGraphic boardGraphic;
     private List<List<Button>> tileList;
-    private Menu menu;
+    public Menu Menu;
     private List<MoveInfo> _moves;
+    private string _result;
     const int SIZE = 8;
     public GameWindow(Menu menuWindow)
     {
@@ -31,8 +32,9 @@ public partial class GameWindow : Form
         board.SetStartPieces();
         boardGraphic.DrawPieces(boardPanel, board, tileList);
         
-        menu = menuWindow;
+        Menu = menuWindow;
         _moves = new List<MoveInfo>();
+        _result = "incomplete";
     }
 
     private void TileClick(object sender, EventArgs e)
@@ -123,45 +125,53 @@ public partial class GameWindow : Form
 
         if (board.CheckMate)//na co komu switch case
         {
-            labelCheck.Text = (game.Turn == 'w' ? "Czarny" : "Biały") + " wygrał przez mata";
+            string endReason = (game.Turn == 'w' ? "Czarny" : "Biały") + " wygrał przez mata";
+            _result = "mate";
+            labelCheck.Text = endReason;
+            boardGraphic.ShowEndWindow(endReason, this);
+        }
+        else if (board.Pat)
+        {
+            string endReason = "Remis - Pat!";
+            _result = "stalemate";
+            labelCheck.Text = endReason;
+            boardGraphic.ShowEndWindow(endReason, this);
+        }
+        else  if (board.InsufficientMaterial)
+        {
+            string endReason = "Remis - Brak materiału!";
+            _result = "stalemate";
+            labelCheck.Text = endReason;
+            boardGraphic.ShowEndWindow(endReason, this);
+        } 
+        else if (game.HalfMoveCounter >= 50)
+        { 
+            string endReason = "Remis - Zasada 50 ruchów";
+            _result = "stalemate";
+            labelCheck.Text = endReason;
+            boardGraphic.ShowEndWindow(endReason, this);
+        } 
+        else if (board.Check)
+        {
+            labelCheck.Text = (game.Turn == 'w' ? "Biały" : "Czarny") + " król jest szachowany";
         }
         else
         {
-            if (board.Pat)
-                labelCheck.Text = "Remis - Pat!";
-            else
-            {
-                if (board.InsufficientMaterial)
-                {
-                    labelCheck.Text = "Remis - Brak materiału!";
-                }
-                else
-                {
-                    if (game.HalfMoveCounter >= 50)
-                    {
-                        labelCheck.Text = "Remis - Zasada 50 ruchów";
-                    }
-                    else
-                    {
-                        if (board.Check)
-                            labelCheck.Text = (game.Turn == 'w' ? "Biały" : "Czarny") + " król jest szachowany";
-                        else
-                            labelCheck.Text = "";
-                    }
-                }
-            }
+            labelCheck.Text = "";
         }
     }
 
     private void Form1_Closed(object sender, FormClosedEventArgs e)
     {
+        Console.WriteLine("KONIEC");
         var context = new ChessContext();
         //int gameId = (context.GameInfo.Any() ? context.GameInfo.Max(i => i.Id) : 0) + 1;
         context.GameInfo.Add(new GameHistory() {
             //Id = gameId,
-            MoveHistory = _moves
+            MoveHistory = _moves,
+            Result = _result
         });
         context.SaveChanges();
-        menu.Show();
+        Menu.Show();
     }
 }
