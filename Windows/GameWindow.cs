@@ -37,6 +37,10 @@ public partial class GameWindow : Form
 
     private void TileClick(object sender, EventArgs e)
     {
+        if (!board.GameON)
+        {
+            return;
+        }
         boardGraphic.HideMoves(tileList);
         Button tile = (Button)sender;
 
@@ -108,11 +112,45 @@ public partial class GameWindow : Form
             board.SelectedTile = null;
         }
 
-        labelMove.Text = "Ruch: " + ((game.Turn == 'w') ? "białe" : "czarne");
-        if (board.Check)
-            labelCheck.Text = (game.Turn == 'w' ? "Biały" : "Czarny") + " król jest szachowany";
+        if (board.GameON)
+        {
+            labelMove.Text = "Ruch: " + ((game.Turn == 'w') ? "białe" : "czarne");
+        }
         else
-            labelCheck.Text = "";
+        {
+            labelMove.Text = "";
+        }
+
+        if (board.CheckMate)//na co komu switch case
+        {
+            labelCheck.Text = (game.Turn == 'w' ? "Czarny" : "Biały") + " wygrał przez mata";
+        }
+        else
+        {
+            if (board.Pat)
+                labelCheck.Text = "Remis - Pat!";
+            else
+            {
+                if (board.InsufficientMaterial)
+                {
+                    labelCheck.Text = "Remis - Brak materiału!";
+                }
+                else
+                {
+                    if (game.HalfMoveCounter >= 50)
+                    {
+                        labelCheck.Text = "Remis - Zasada 50 ruchów";
+                    }
+                    else
+                    {
+                        if (board.Check)
+                            labelCheck.Text = (game.Turn == 'w' ? "Biały" : "Czarny") + " król jest szachowany";
+                        else
+                            labelCheck.Text = "";
+                    }
+                }
+            }
+        }
     }
 
     private void Form1_Closed(object sender, FormClosedEventArgs e)

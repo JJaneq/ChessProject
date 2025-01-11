@@ -9,7 +9,8 @@ public class Game
     public Board Board { get; set; }
     public char Turn { get; set; }
     // public Boolean Check { get; private set; }
-    
+    public int HalfMoveCounter { get; private set; } = 0;
+
     public Game(Board board)
     {
         Board = board;
@@ -17,6 +18,7 @@ public class Game
         Player2 = new Player('b');
 
         Turn = 'w';
+        HalfMoveCounter = 0;
         //Check = false;
     }
 
@@ -34,6 +36,8 @@ public class Game
         }
         Turn = Turn == 'w' ? 'b' : 'w';
         Board.isKingChecked(Turn);
+        Board.isCheckMate(Turn);
+        Board.Insufficient(Turn);
     }
 
     public void MovePiece(Tile from, Tile to)
@@ -63,7 +67,7 @@ public class Game
         if (from.Piece is Pawn pawn && to.Piece == null && Math.Abs(from.Column - to.Column) == 1 && Math.Abs(from.Row - to.Row) == 1)
         {
             // Usuwanie piona przeciwnika znajdującego się w sąsiedniej kolumnie
-            if(from.Column + 1 <= 7)
+            if (from.Column + 1 <= 7)
             {
                 Tile rightAdjacentTile = Board.GetTile(from.Row, from.Column + 1);
                 if (rightAdjacentTile.Piece is Pawn rightAdjacentPawn && rightAdjacentPawn.Color != pawn.Color && rightAdjacentPawn.canGetEnPassanted == 1)
@@ -81,15 +85,28 @@ public class Game
             }
         }
 
+        // Aktualizacja licznika 50 ruchów
+        if (from.Piece is Pawn || to.Piece != null)
+        {
+            HalfMoveCounter = 0; // Zresetuj licznik, jeśli ruch dotyczy piona lub bicia
+        }
+        else
+        {
+            HalfMoveCounter++; // Zwiększ licznik w przypadku "neutralnego" ruchu
+        }
+        if (HalfMoveCounter >= 50)
+        {
+            Board.GameOver();
+        }
         to.Piece = from.Piece;
         from.Piece = null;
-        
+
         to.Piece.Row = to.Row;
         to.Piece.Col = to.Column;
         to.Piece.Moved = true;
         NextTurn();
     }
-    
+
     public Boolean CheckMove(Tile from, Tile to)
     {
         List<Tile> availableTiles = from.Piece.RemoveBlockedMoves(Board, from.Piece.GetPossibleMoves(Board));

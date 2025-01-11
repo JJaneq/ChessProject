@@ -29,26 +29,26 @@ partial class GameWindow
     /// </summary>
     private void InitializeComponent()
     {
-        labelMove = new System.Windows.Forms.Label();
-        labelCheck = new System.Windows.Forms.Label();
-        textPanel = new System.Windows.Forms.Panel();
-        boardPanel = new System.Windows.Forms.Panel();
+        labelMove = new Label();
+        labelCheck = new Label();
+        textPanel = new Panel();
+        boardPanel = new Panel();
         textPanel.SuspendLayout();
         SuspendLayout();
         // 
         // labelMove
         // 
-        labelMove.Location = new System.Drawing.Point(3, 7);
+        labelMove.Location = new Point(3, 5);
         labelMove.Name = "labelMove";
-        labelMove.Size = new System.Drawing.Size(132, 22);
+        labelMove.Size = new Size(116, 16);
         labelMove.TabIndex = 1;
         labelMove.Text = "Ruch: białe";
         // 
         // labelCheck
         // 
-        labelCheck.Location = new System.Drawing.Point(3, 28);
+        labelCheck.Location = new Point(3, 21);
         labelCheck.Name = "labelCheck";
-        labelCheck.Size = new System.Drawing.Size(132, 39);
+        labelCheck.Size = new Size(116, 71);
         labelCheck.TabIndex = 2;
         labelCheck.Text = "Check Info";
         // 
@@ -56,30 +56,31 @@ partial class GameWindow
         // 
         textPanel.Controls.Add(labelCheck);
         textPanel.Controls.Add(labelMove);
-        textPanel.Dock = System.Windows.Forms.DockStyle.Right;
-        textPanel.Location = new System.Drawing.Point(939, 0);
-        textPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+        textPanel.Dock = DockStyle.Right;
+        textPanel.Location = new Point(821, 0);
+        textPanel.Margin = new Padding(3, 2, 3, 2);
         textPanel.Name = "textPanel";
-        textPanel.Size = new System.Drawing.Size(145, 926);
+        textPanel.Size = new Size(127, 694);
         textPanel.TabIndex = 1;
         // 
         // boardPanel
         // 
-        boardPanel.BackColor = System.Drawing.Color.BurlyWood;
-        boardPanel.Location = new System.Drawing.Point(12, 11);
-        boardPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+        boardPanel.BackColor = Color.BurlyWood;
+        boardPanel.Location = new Point(10, 8);
+        boardPanel.Margin = new Padding(3, 2, 3, 2);
         boardPanel.Name = "boardPanel";
-        boardPanel.Size = new System.Drawing.Size(850, 850);
+        boardPanel.Size = new Size(744, 638);
         boardPanel.TabIndex = 0;
         // 
-        // Form1
+        // GameWindow
         // 
-        AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
-        AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-        ClientSize = new System.Drawing.Size(1084, 926);
+        AutoScaleDimensions = new SizeF(7F, 15F);
+        AutoScaleMode = AutoScaleMode.Font;
+        ClientSize = new Size(948, 694);
         Controls.Add(textPanel);
         Controls.Add(boardPanel);
-        Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+        Margin = new Padding(3, 2, 3, 2);
+        Name = "GameWindow";
         Text = "Szachy";
         FormClosed += Form1_Closed;
         textPanel.ResumeLayout(false);
